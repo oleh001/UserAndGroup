@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <header>
+
+        <div class="text">
+            <ui:include src="part/locales.xhtml"/>
+             <p:outputLabel value="#{msg.welcome}: User"/>
+        </div>
+
+        <p:button type="button" class="button1" value="#{msg.login}"/>
+        <p:button type="button" class="button2" value="#{msg.logout}"/>
+
+    </header>
+</f:view>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../templates/template.xhtml">
+    <ui:define name="content">
+
+        <h:form id="editGroupForm">
+
+            <h:outputText value="#{msg.add_or_edit_group}: "/>
+
+            <h:panelGrid id="nameGoup" columns="2" cellpadding="5">
+                <h:outputText value="#{msg.group_name}: "/>
+                <p:inputText id="inputNewGroup" value="#{groupController.selectedGroup.name}" required="true"/>
+            </h:panelGrid>
+
+            <p:commandButton value="#{msg.save}" update="@([id$=form]), @([id$=editGroupForm])" process="@form"
+                             actionListener="#{groupController.save}"/>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+</html>

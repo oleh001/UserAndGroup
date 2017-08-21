@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+    <f:loadBundle var="msgs" basename="user"/>
+    <h:outputStylesheet name="css/style.css"/>
+    <title>${msg.title}</title>
+</h:head>
+
+<f:view locale="#{localeChanger.currentLocale}">
+
+    <ui:include src="header.xhtml"/>
+    <div class="page">
+        <b:container>
+            <b:row>
+                <b:column span="3">
+                    <ui:include src="leftmenu.xhtml"/>
+                </b:column>
+                <b:column span="9">
+
+                    <div class="centerContent">
+                        <ui:insert name="content" id="content"/>
+                    </div>
+
+                </b:column>
+            </b:row>
+        </b:container>
+    </div>
+    <ui:include src="footer.xhtml"/>
+</f:view>
+</html>

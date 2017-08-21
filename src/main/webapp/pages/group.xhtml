@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+>
+<ui:composition template="../templates/template.xhtml">
+    <ui:define name="content">
+
+        <h:form id="editGroupForm">
+
+            <h:outputText value="#{msg.add_or_edit_group}: "/>
+
+            <h:panelGrid id="nameGoup" columns="2" cellpadding="5">
+                <h:outputText value="#{msg.group_name}: "/>
+                <p:inputText id="inputNewGroup" value="#{groupController.selectedGroup.name}" required="true"/>
+            </h:panelGrid>
+
+            <p:commandButton value="#{msg.save}" update="@([id$=form]), @([id$=editGroupForm])" process="@form"
+                             actionListener="#{groupController.save}"/>
+        </h:form>
+
+        <br/>
+        <br/>
+
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true"/>
+            <p:dataTable var="group" value="#{groupController.lazyModel}"
+                         rows="10"
+                         paginator="true"
+                         emptyMessage=""
+                         rowIndexVar="rowIndexVar"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15"
+                         lazy="true">
+
+                <f:facet name="header">
+                    <h:outputText value="#{msg.list_of_groups}"/>
+                </f:facet>
+
+                <p:column headerText="#{msg.id}" sortBy="#{group.idGroup}">
+                    <h:outputText value="#{group.idGroup}"/>
+                </p:column>
+
+                <p:column headerText="#{msg.group_name}" sortBy="#{group.name}">
+                    <h:outputText value="#{group.name}"/>
+                </p:column>
+
+                <p:column headerText="#{msg.edit}">
+                    <p:commandLink title="#{msg.edit}"
+                                   action="#{groupController.editAction()}"
+                                   update="@([id$=editGroupForm])">
+                        <f:setPropertyActionListener value="#{group}" target="#{groupController.selectedGroup}"/>
+                        <o:graphicImage name="images/edit.png" styleClass="edit-icon" dataURI="true"/>
+                    </p:commandLink>
+                </p:column>
+
+                <p:column headerText="#{msg.delete}">
+                    <p:commandLink title="#{msg.delete}"
+                                   action="#{groupController.deleteAction()}"
+                                   update="@([id$=form])">
+                        <f:setPropertyActionListener value="#{group}" target="#{groupController.selectedGroup}"/>
+                        <o:graphicImage name="images/delete.png" styleClass="edit-icon" dataURI="true"/>
+                    </p:commandLink>
+                </p:column>
+
+                <f:facet name="#{msg.footer}">
+                    <h:outputText value="#{msg.in_total_there_are} #{groupController.getAll().size()} #{msg.groups}."/>
+                </f:facet>
+
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

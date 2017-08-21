@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+    <h:form>
+        <p:growl id="messages" showDetail="false"/>
+
+        <h3 style="margin-top:0">#{msg.menu}</h3>
+        <p:menu styleClass="menu">
+
+            <p:menuitem outcome="/index.xhtml" value="#{msg.home}" update="@([id$=content])"
+                        icon="ui-icon-home"/>
+
+            <p:submenu label="#{msg.user}">
+                <p:menuitem outcome="/pages/user.xhtml" value="#{msg.all_users}" update="@([id$=content])"
+                            ajax="true" icon="ui-icon-refresh"/>
+                <p:menuitem outcome="/pages/adduser.xhtml" actionListener="#{userController.addAction()}" value="#{msg.add_new_user}" update="@([id$=content])"
+                            ajax="true" icon="ui-icon-new"/>
+            </p:submenu>
+
+            <p:submenu label="#{msg.group}">
+                <p:menuitem outcome="/pages/group.xhtml" value="#{msg.all_groups}" update="@([id$=content])"
+                            ajax="true" icon="ui-icon-refresh"/>
+                <p:menuitem outcome="/pages/addgroup.xhtml" actionListener="#{groupController.addAction()}" value="#{msg.add_new_group}" update="@([id$=content])"
+                            ajax="true" icon="ui-icon-new"/>
+            </p:submenu>
+
+        </p:menu>
+    </h:form>
+</f:view>
+</html>

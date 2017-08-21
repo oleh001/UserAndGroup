@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+}
+
+table {
+    border: 1px solid blue;
+    margin: 20px auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+header {
+    background-color: #F5A58B;
+    font-size: 48px;
+    color: #0c9c0d;
+}
+
+.lang {
+    width: 30%;
+    margin-top: 2px;
+    padding: 5px;
+    float: left;
+
+}
+
+.lang form {
+    width: 25%;
+    float: right;
+}
+
+.lang-link {
+    margin: 5px;
+    padding: 5px;
+    color: #a0a0a0;
+    font-size: 40px !important;
+}
+
+.menu{
+    width:100% !important;
+}
+
+footer {
+    text-align: center;
+    background-color: #0c9c0d;
+    color: #F5A58B;
+}
+
+div.text {
+    text-align: center;
+    font-size: 50px;
+}
+
+button.button1 {
+    margin-top: -80px;
+    float: left;
+    display: inline-block;
+    font-family: Arial, Helvetica, FreeSans, sans-serif;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: rgb(245, 245, 245);
+    text-shadow: 0 -1px rgba(0, 0, 0, .1);
+    padding: .2em 0.4em;
+    border-radius: 3px;
+    background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+    box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0, 0, 0, .3) 0 2px 5px;
+    -webkit-animation: pulsate 1.2s linear infinite;
+    animation: pulsate 1.2s linear infinite;
+}
+
+button.button1:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+button.button1:active {
+    top: 1px;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, .3), 0 1px 1px #fff, inset 0 1px 2px rgba(0, 0, 0, .8), inset 0 -1px 0 rgba(0, 0, 0, .05);
+}
+
+@-webkit-keyframes pulsate {
+    50% {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    }
+}
+
+@keyframes pulsate {
+    50% {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    }
+}
+
+button.button2 {
+    margin-right: 0;
+    margin-top: -80px;
+    float: right;
+    display: inline-block;
+    color: #777674;
+
+    text-shadow: rgba(255, 255, 255, .5) 1px 1px, rgba(100, 100, 100, .3) 3px 7px 3px;
+    padding: .2em 0.4em;
+    font-size: 0.75em;
+    border-radius: 3px / 100%;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, .3)),
+    linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+    linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+    linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5)),
+    linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5));
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+    background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    box-shadow: rgba(0, 0, 0, .5) 3px 10px 10px -10px;
+}
+
+button.button2:hover {
+    transition: .5s linear;
+    background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+
+button.button2:active {
+    top: 1px;
+}
+
+.page {
+    margin-top: 20px;
+}
+
+tr {
+    background-color: wheat;
+}
+
+form {
+}
+
+li {
+    margin: 10px 0;
+    list-style: none;
+}
+
+.leftContent {
+    margin: 10px;
+    float: left;
+    width: 90%;
+    text-align: center;
+    border: 2px solid green;
+}
+
+.centerContent {
+    text-align: center;
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+    border: solid 2px #F5192F;
+}
+
+input:focus:valid,
+textarea:focus:valid {
+    border: solid 2px #18E109;
+    background-color: #fff;
+}
+
+.idUserDontVisible {
+    visibility: visible;
+}

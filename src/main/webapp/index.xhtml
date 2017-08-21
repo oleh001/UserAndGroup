@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="templates/template.xhtml">
+    <ui:define name="content">
+        <p:panelGrid id="indexing" cellpadding="0" style="margin-top:20px">
+            <f:facet name="header">
+
+                <p:row>
+                    <p:column colspan="2">
+                        <h:outputText value="#{msg.author_text_index}"/>
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column colspan="2">#{msg.all_functionation}</p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>
+                        <h:outputText value="#{msg.successful}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{msg.error}"/>
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column>
+                        <h:outputText value="#{msg.author_successful_text_indext}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{msg.author_error_text_indext}"/>
+                    </p:column>
+                </p:row>
+
+            </f:facet>
+        </p:panelGrid>
+    </ui:define>
+</ui:composition>
+
+
+</html>

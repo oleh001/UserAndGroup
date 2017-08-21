@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="../templates/template.xhtml">
+    <ui:define name="content">
+
+        <h:form id="editUserForm">
+
+            <p:panelGrid id="nameUser" cellpadding="0" style="margin-top:20px">
+                <f:facet name="header">
+
+                    <p:row>
+                        <p:column colspan="4">#{msg.add_or_edit_user}</p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{msg.nick_name}: "/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="inputNickName" value="#{userController.selectedUser.nickName}"
+                                         required="true"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{msg.first_name}: "/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="inputFirstName" value="#{userController.selectedUser.firstName}"
+                                         required="true"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{msg.last_name}: "/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="inputLastName" value="#{userController.selectedUser.lastName}"
+                                         required="true"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{msg.group}: "/>
+                        </p:column>
+                        <p:column>
+                            <p:autoComplete id="inputGroupName" dropdown="true" converter="#{groupConverter}"
+                                            var="group"
+                                            value="#{userController.selectedUser.group}"
+                                            completeMethod="#{groupController.getAll()}" itemLabel="#{group.name}"
+                                            itemValue="#{group}" required="true"
+                                            groupBy="#{userController.getFirstChar(group)}" scrollHeight="250"
+                            />
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{msg.password}: "/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="password" value="#{userController.selectedUser.nickName}" required="true"/>
+                        </p:column>
+
+                        <p:column colspan="1">
+                            <h:outputText value="#{msg.birth_Day}: "/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:calendar id="mask" value="#{userController.selectedUser.birthDay}" pattern="dd-MM-yyyy"
+                                        mask="true"/>
+                        </p:column>
+                    </p:row>
+
+                </f:facet>
+
+            </p:panelGrid>
+            <p:commandButton value="#{msg.save}" update="@([id$=form]), @([id$=editUserForm])" process="@form"
+                             actionListener="#{userController.save}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
